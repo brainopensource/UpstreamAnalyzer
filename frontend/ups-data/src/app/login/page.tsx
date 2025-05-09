@@ -11,9 +11,12 @@ export default function Login() {
   const setUser = useUserStore((state) => state.setUser)
   const [message, setMessage] = useState<string | null>(null)
   const [messageType, setMessageType] = useState<'success' | 'error' | null>(null)
+  const [loading, setLoading] = useState(false)
 
   const handleLogin = async (email: string, password: string) => {
+    setLoading(true)
     const result = await loginFastAPI(email, password)
+    setLoading(false)
     if (result.success) {
       setUser({ email, name: email })
       setMessage('Login realizado com sucesso!')
@@ -36,6 +39,7 @@ export default function Login() {
             logoAlt="Wood Mackenzie Logotype"
             title="Sign in to your account"
             onSubmit={handleLogin}
+            loading={loading}
           />
           {message && (
             <div className={`mt-6 text-center text-base font-semibold ${messageType === 'success' ? 'text-green-400' : 'text-red-400'}`}>

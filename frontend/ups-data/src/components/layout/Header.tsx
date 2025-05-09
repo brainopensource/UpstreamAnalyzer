@@ -7,8 +7,9 @@ export default function Header() {
   const user = useUserStore((state) => state.user)
 
   return (
-    <header className="w-full bg-[#0a0a0f] border-2 neon-border shadow-inner">
-      <div className="flex items-center justify-between gap-8 pl-4 py-5 pr-6">
+    <header className="w-full bg-[#0a0a0f] border-[12px] border-black rounded-2xl relative shadow-inner">
+      <div className="absolute inset-0 rounded-xl pointer-events-none neon-border glossy-border" style={{ zIndex: 1 }} />
+      <div className="flex items-center justify-between gap-8 pl-4 py-5 pr-6 mr-12 relative z-10">
         {/* Left: Logo and Title */}
         <div className="flex items-center gap-8">
           {/* Logo */}

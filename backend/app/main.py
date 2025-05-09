@@ -21,11 +21,11 @@ class ImportDataRequest(BaseModel):
     password: str
     params: dict = {"$top": "1", "$select": "reference_period"}
 
-@app.post("/import-data")
-def import_data(request: ImportDataRequest):
-    print(f"[IMPORT-DATA] URL: {WOODMAC_LDI_ENDPOINT}")
-    print(f"[IMPORT-DATA] Username: {request.username}")
-    print(f"[IMPORT-DATA] Params: {request.params}")
+@app.post("/authenticate")
+def authenticate(request: ImportDataRequest):
+    print(f"[AUTHENTICATE] URL: {WOODMAC_LDI_ENDPOINT}")
+    print(f"[AUTHENTICATE] Username: {request.username}")
+    print(f"[AUTHENTICATE] Params: {request.params}")
     data = get_with_retries(
         WOODMAC_LDI_ENDPOINT,
         request.username,

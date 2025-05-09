@@ -62,7 +62,7 @@ export default function Home() {
       <div className="text-center mt-24">
         <Link href="/login">
           <Button size="lg">
-            Login
+            Start
           </Button>
         </Link>
       </div>

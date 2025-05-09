@@ -5,6 +5,7 @@ import { SidebarNav } from '@/components/layout/sidebar-nav'
 import { MobileNav } from '@/components/layout/mobile-nav'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import ElectronTitleBar from '@/components/ElectronTitleBar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,8 +22,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} bg-[#050507] flex flex-col min-h-screen`}>
+        <ElectronTitleBar />
         <Header />
-        <div className="flex-1 flex w-full flex-row">
+        <div className="flex-1 flex w-full flex-row border-[12px] border-black rounded-2xl">
           <div className="hidden lg:block h-full">
             <SidebarNav />
           </div>

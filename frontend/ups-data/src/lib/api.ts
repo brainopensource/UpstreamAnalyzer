@@ -23,7 +23,7 @@ export async function apiGet<T = any>(key: keyof typeof apiUrls, params?: Record
 }
 
 export async function loginFastAPI(username: string, password: string) {
-  const url = 'http://127.0.0.1:8000/import-data';
+  const url = 'http://127.0.0.1:8000/authenticate';
   const body = {
     username,
     password

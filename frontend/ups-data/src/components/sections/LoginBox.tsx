@@ -11,6 +11,7 @@ interface LoginBoxProps {
   title: string
   onSubmit: (email: string, password: string) => void
   className?: string
+  loading?: boolean
 }
 
 export function LoginBox({
@@ -20,10 +21,12 @@ export function LoginBox({
   logoHeight = 60,
   title,
   onSubmit,
-  className
+  className,
+  loading = false
 }: LoginBoxProps) {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    if (loading) return
     const formData = new FormData(e.currentTarget)
     const email = formData.get('email') as string
     const password = formData.get('password') as string
@@ -81,8 +84,13 @@ export function LoginBox({
               </div>
             </div>
 
-            <Button type="submit" size="lg" className="w-full">
-              Sign in
+            <Button
+              type="submit"
+              size="lg"
+              className={`w-full ${loading ? 'bg-gray-600 cursor-not-allowed opacity-70' : ''}`}
+              disabled={loading}
+            >
+              {loading ? 'Signing in...' : 'Sign in'}
             </Button>
           </form>
         </div>

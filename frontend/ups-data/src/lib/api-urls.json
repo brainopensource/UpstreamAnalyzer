@@ -1,0 +1,4 @@
+{
+  "getUser": "http://127.0.0.1:8000/import-data",
+  "getPosts": "http://127.0.0.1:8000/import-data"
+} 
